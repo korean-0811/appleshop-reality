@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagepop 코인지갑 투자 플랫폼</title>
+  <title>Pagepop - 나만의 안전한 코인지갑</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: url('https://images.unsplash.com/photo-1611078489935-6cf2a01b1a29') no-repeat center center fixed;
-      background-size: cover;
-      color: #111;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #f1f1f1;
     }
     nav {
       background-color: #0c1d3c;
       padding: 15px;
       display: flex;
       gap: 20px;
-      z-index: 100;
-      position: sticky;
-      top: 0;
+      justify-content: center;
     }
     nav a {
-      color: white;
+      color: #f1f1f1;
       text-decoration: none;
       font-weight: bold;
     }
     h1, h2 {
-      color: #012a4a;
+      color: #00f0ff;
     }
     .container {
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.94);
+      padding: 30px;
+      max-width: 960px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
     .hidden {
       display: none;
@@ -41,32 +42,36 @@
       margin: 1%;
       border-radius: 8px;
       object-fit: cover;
-      height: 180px;
+      height: 160px;
+      border: 1px solid #333;
     }
     .popup {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: #fff;
+      background: #222;
       padding: 30px;
-      border: 1px solid #999;
+      border: 1px solid #444;
       display: none;
       z-index: 1000;
       border-radius: 10px;
-      width: 300px;
+      width: 320px;
+      color: white;
     }
     .popup input {
-      margin: 5px;
+      margin: 10px 0;
       width: 100%;
       padding: 10px;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #666;
+      background: #111;
+      color: #fff;
     }
     .btn {
       padding: 12px 20px;
       margin-top: 15px;
-      background-color: #00c896;
+      background-color: #00bfff;
       border: none;
       color: white;
       font-weight: bold;
@@ -76,7 +81,7 @@
       display: inline-block;
     }
     .btn:hover {
-      background-color: #00b07f;
+      background-color: #008ecc;
       transform: scale(1.03);
     }
     .section {
@@ -92,52 +97,46 @@
 </head>
 <body>
   <nav>
-    <a href="#" onclick="showSection('home')">홈</a>
+    <a href="#" onclick="showSection('home')">지갑</a>
     <a href="#" onclick="showSection('about')">회사소개</a>
-    <a href="#" onclick="showSection('news')">보도자료</a>
-    <a href="#" onclick="showSection('apply')">투자신청</a>
+    <a href="#" onclick="showSection('news')">보안 및 업데이트</a>
+    <a href="#" onclick="showSection('apply')">지갑 연동</a>
     <a href="#" onclick="toggleLogin()">마이페이지</a>
   </nav>
 
   <div class="container">
     <div id="home" class="section">
-      <h1>투자 가능한 코인지갑, Pagepop</h1>
-      <p>AI 분석 기반, 암호화폐 및 주식 자동 분산 포트폴리오 지원. 당신만의 안전한 코인지갑 투자를 시작하세요.</p>
+      <h1>Pagepop - 나만의 안전한 코인지갑</h1>
+      <p>당신의 암호화폐를 안전하게 보관하고, 스마트한 투자 전략과 함께 자산을 성장시키세요. Exodus, MetaMask에서 영감을 받아, 더 한국적인 감성과 신뢰감으로 개발된 차세대 디지털 월렛입니다.</p>
       <div class="images">
-        <img src="https://source.unsplash.com/featured/?crypto-wallet" alt="지갑">
-        <img src="https://source.unsplash.com/featured/?cryptocurrency" alt="암호화폐">
-        <img src="https://source.unsplash.com/featured/?stock-market" alt="주식">
+        <img src="https://source.unsplash.com/featured/?wallet" alt="지갑">
+        <img src="https://source.unsplash.com/featured/?crypto" alt="암호화폐">
+        <img src="https://source.unsplash.com/featured/?ethereum" alt="이더리움">
         <img src="https://source.unsplash.com/featured/?blockchain" alt="블록체인">
       </div>
     </div>
 
     <div id="about" class="section hidden">
-      <h2>회사소개</h2>
+      <h2>Pagepop은 무엇인가요?</h2>
       <p>
-        Pagepop은 AI와 보안 기술을 바탕으로 한 신개념 디지털 자산 관리 플랫폼입니다. 고객의 투자 성향과 시장 트렌드를 실시간 분석하여, 코인 및 주식 자산을 자동으로 재구성하고 최적화된 수익 전략을 제공합니다. Pagepop은 다음 기능을 제공합니다:
-        <br><br>
-        • AI 투자 시뮬레이션<br>
-        • 자동 코인 분산 투자<br>
-        • 실시간 리스크 분석<br>
-        • 보안 강화를 위한 2FA 인증<br>
-        • 매주 AI 분석 리포트 제공<br>
-        • 멀티지갑 연동 및 자산 통합 뷰<br>
-        • 탈중앙화된 토큰 관리 지원 등.
+        Pagepop은 개인 맞춤형 자산 관리 기능을 제공하는 차세대 코인지갑 플랫폼입니다. <br>
+        안전한 보안체계, 간편한 지갑 생성 및 백업, 실시간 시세 조회, 자동화된 AI 포트폴리오 추천 등 다양한 기능을 통해 여러분의 암호화폐 생활을 혁신적으로 바꿔드립니다. <br>
+        Web3 시대의 금융 자유를 Pagepop과 함께 경험해보세요.
       </p>
     </div>
 
     <div id="news" class="section hidden">
-      <h2>보도자료</h2>
-      <img src="https://source.unsplash.com/featured/?bitcoin,news" alt="뉴스 이미지">
-      <p>2025년 3월 - Pagepop, 코인지갑 기반 자동 투자 기능 공식 출시</p>
-      <img src="https://source.unsplash.com/featured/?ai,finance" alt="보도자료 이미지">
-      <p>AI 금융 포럼 2025 참여 - AI 기반 암호화폐 분석 사례 발표</p>
+      <h2>보안 및 최신 업데이트</h2>
+      <img src="https://source.unsplash.com/featured/?cybersecurity" alt="보안">
+      <p>2025년 보안 강화 업데이트 완료 - 생체인증과 2단계 인증 추가</p>
+      <img src="https://source.unsplash.com/featured/?hardware-wallet" alt="지갑 업데이트">
+      <p>하드웨어 지갑 연동 지원 시작 (Ledger, Trezor)</p>
     </div>
 
     <div id="apply" class="section hidden">
-      <h2>투자신청</h2>
-      <p>디스코드 연결을 통해 1:1 투자 컨설팅을 예약하세요.</p>
-      <a href="https://discord.com" class="btn" target="_blank">디스코드로 투자신청</a>
+      <h2>나의 지갑 연결하기</h2>
+      <p>Pagepop은 디스코드를 통해 간편한 1:1 연동 및 고객지원 서비스를 제공합니다.</p>
+      <a href="https://discord.com" class="btn" target="_blank">디스코드로 지갑 연동</a>
       <div class="gap"></div>
     </div>
   </div>
@@ -147,7 +146,7 @@
     <input type="text" placeholder="아이디">
     <input type="password" placeholder="비밀번호">
     <button class="btn">로그인</button>
-    <p>계정이 없으신가요? <a href="#">회원가입</a></p>
+    <p>아직 계정이 없으신가요? <a href="#">회원가입</a></p>
     <button onclick="toggleLogin()" class="btn">닫기</button>
   </div>
 
