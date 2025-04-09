@@ -1,38 +1,130 @@
-<<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apple Shop Reality</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- 헤더 배너 -->
-  <header class="banner">
-    <img src="banner1.png" alt="메인 배너">
-  </header>
+/* style.css */
 
-  <!-- 섹션 1 -->
-  <section class="section">
-    <img src="section1.png" alt="섹션 1 이미지">
-    <div class="content">
-      <h2>프리미엄 리얼리티 스토어</h2>
-      <p>현실과 가상의 경계를 넘나드는 경험을 제공합니다.</p>
-    </div>
-  </section>
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background-color: #f9f9f9;
+  color: #111;
+}
 
-  <!-- 섹션 2 -->
-  <section class="section reverse">
-    <img src="section2.png" alt="섹션 2 이미지">
-    <div class="content">
-      <h2>AR/VR 쇼핑 경험</h2>
-      <p>가상에서 제품을 체험하고, 현실로 가져오세요.</p>
-    </div>
-  </section>
+.hero {
+  background: linear-gradient(to right, #fff, #eef6ff);
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+}
 
-  <!-- 하단 배너 -->
-  <footer class="footer-banner">
-    <img src="banner2.png" alt="하단 배너">
-  </footer>
-</body>
-</html>
+.hero-content h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hero-content .highlight {
+  color: #ff3b30;
+  font-weight: 900;
+}
+
+.hero-content p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.hero-img {
+  width: 90%;
+  max-width: 500px;
+  margin-top: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.card {
+  width: 300px;
+  background: #f0f4f8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.label {
+  padding: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+
+.earlybird {
+  background: #111;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.earlybird-box {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 24px;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.earlybird-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.earlybird-box .green {
+  color: #2ee871;
+}
+
+.date {
+  font-size: 1.1rem;
+  margin: 12px 0 20px;
+  color: #bbb;
+}
+
+.cta {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background: #2ee871;
+  color: #111;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta:hover {
+  background: #21c95e;
+}
+
+.earlybird-img {
+  margin-top: 40px;
+  width: 200px;
+  opacity: 0.7;
+}
