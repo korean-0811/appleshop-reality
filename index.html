@@ -1,124 +1,100 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagepop 투자 플랫폼</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginBtn = document.getElementById("loginBtn");
+      const signupBtn = document.getElementById("signupBtn");
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+      const mainPage = document.getElementById("mainPage");
+      const showLogin = document.getElementById("showLogin");
+      const showSignup = document.getElementById("showSignup");
 
-export default function PagepopLanding() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [tab, setTab] = useState("login");
+      loginBtn.onclick = () => {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+        mainPage.style.display = "none";
+      }
+      signupBtn.onclick = () => {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+        mainPage.style.display = "none";
+      }
+      showLogin.onclick = () => {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+      }
+      showSignup.onclick = () => {
+        signupForm.style.display = "block";
+        loginForm.style.display = "none";
+      }
+      document.getElementById("doLogin").onclick = () => {
+        loginForm.style.display = "none";
+        mainPage.style.display = "block";
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">Pagepop</div>
+    <nav>
+      <button id="loginBtn">로그인</button>
+      <button id="signupBtn">회원가입</button>
+      <a href="#" class="link">회사소개</a>
+    </nav>
+  </header>
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-700 to-blue-900 text-white">
-      <header className="flex items-center justify-between p-6 bg-blue-800">
-        <div className="text-2xl font-bold">Pagepop</div>
-        <nav className="flex gap-4">
-          <Button variant="ghost" className="text-white">회사소개</Button>
-          {!loggedIn && (
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" className="text-white border-white hover:bg-blue-600">
-                  로그인
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="bg-white text-black">
-                <Tabs defaultValue="login" value={tab} onValueChange={setTab}>
-                  <TabsList className="grid w-full grid-cols-2 mb-4">
-                    <TabsTrigger value="login">로그인</TabsTrigger>
-                    <TabsTrigger value="signup">회원가입</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="login">
-                    <Card>
-                      <CardContent className="space-y-4 p-4">
-                        <Input placeholder="아이디 입력" />
-                        <Input type="password" placeholder="비밀번호 입력" />
-                        <Button className="w-full" onClick={() => setLoggedIn(true)}>로그인</Button>
-                        <div className="text-xs text-gray-500 text-center mt-2">
-                          <p>아이디를 잊으셨나요? 고객센터 또는 등록 이메일 확인</p>
-                          <p>비밀번호를 잊으셨나요? 비밀번호 찾기 링크로 초기화 가능</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
-                  <TabsContent value="signup">
-                    <Card>
-                      <CardContent className="space-y-4 p-4">
-                        <Input placeholder="아이디 입력" />
-                        <Input placeholder="이메일 입력" />
-                        <Input type="password" placeholder="비밀번호 입력" />
-                        <Button className="w-full" onClick={() => setTab("login")}>회원가입</Button>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
-                </Tabs>
-              </DialogContent>
-            </Dialog>
-          )}
-        </nav>
-      </header>
+  <main>
+    <section id="loginForm" style="display:none;">
+      <h2>로그인</h2>
+      <input type="text" placeholder="아이디">
+      <input type="password" placeholder="비밀번호">
+      <button id="doLogin">로그인</button>
+      <p><a href="#">아이디를 잊으셨나요?</a> | <a href="#">비밀번호를 잊으셨나요?</a></p>
+      <p><button id="showSignup">회원가입으로 이동</button></p>
+    </section>
 
-      {loggedIn ? (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="bg-white text-black">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-2">Pagepop 투자 멤버십</h2>
-                <p className="text-gray-700">보유량에 따라 다양한 등급과 혜택 제공</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white text-black">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-2">전문가 분석 리포트</h2>
-                <img
-                  src="https://cdn.pixabay.com/photo/2020/09/04/18/36/stocks-5548866_1280.jpg"
-                  alt="분석"
-                  className="rounded-xl shadow-md w-full mt-2"
-                />
-              </CardContent>
-            </Card>
-            <Card className="bg-white text-black">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-2">자동 투자 연동</h2>
-                <img
-                  src="https://cdn.pixabay.com/photo/2022/11/21/17/39/technology-7609678_1280.jpg"
-                  alt="자동화"
-                  className="rounded-xl shadow-md w-full mt-2"
-                />
-              </CardContent>
-            </Card>
-            <Card className="bg-white text-black">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-2">모바일 완벽 연동</h2>
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/06/09/00/39/mobile-2387080_1280.jpg"
-                  alt="모바일"
-                  className="rounded-xl shadow-md w-full mt-2"
-                />
-              </CardContent>
-            </Card>
-          </div>
-        </motion.div>
-      ) : (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 text-center">
-          <h1 className="text-4xl font-bold mb-4">Pagepop에 오신 것을 환영합니다</h1>
-          <p className="text-lg mb-8">투자 전문가와 함께 시작하세요. 빠르고 안전하게 투자 관리가 가능합니다.</p>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="text-lg px-6 py-3 rounded-xl bg-white text-blue-700 font-bold shadow-md">
-                1분만에 로그인하고 시작하기
-              </Button>
-            </DialogTrigger>
-            <DialogContent>로그인 창은 상단 로그인 버튼을 이용해주세요.</DialogContent>
-          </Dialog>
-          <div className="mt-8">
-            <Button variant="ghost" className="text-white text-md">
-              문의하기 (Telegram / Discord)
-            </Button>
-          </div>
-        </motion.div>
-      )}
-    </div>
-  );
-}
+    <section id="signupForm" style="display:none;">
+      <h2>회원가입</h2>
+      <input type="text" placeholder="아이디">
+      <input type="password" placeholder="비밀번호">
+      <input type="password" placeholder="비밀번호 확인">
+      <button>가입하기</button>
+      <p><button id="showLogin">로그인으로 이동</button></p>
+    </section>
+
+    <section id="mainPage">
+      <h1>Pagepop 투자 멤버십</h1>
+      <p>보유량에 따라 다양한 등급과 혜택 제공</p>
+
+      <div class="features">
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="분석">
+          <h3>전문가 분석 리포트</h3>
+        </div>
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="자동화">
+          <h3>자동 투자 연동</h3>
+        </div>
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/2436/2436635.png" alt="모바일">
+          <h3>모바일 완벽 연동</h3>
+        </div>
+      </div>
+
+      <section class="cta">
+        <h2>Pagepop에 오신 것을 환영합니다</h2>
+        <p>투자 전문가와 함께 시작하세요. 빠르고 안전하게 투자 관리가 가능합니다.</p>
+        <a href="https://t.me/yourtelegram" class="contact">📩 문의하기 (Telegram / Discord)</a>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
