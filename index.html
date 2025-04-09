@@ -1,212 +1,124 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>블루인베스트 투자</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Pretendard', sans-serif;
-      background: linear-gradient(to bottom right, #061a40, #0b3cd9);
-      color: white;
-    }
-    header {
-      background: rgba(6, 26, 64, 0.95);
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #ffce00;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1620207418302-439b387441b0?fit=crop&w=1500&q=80');
-      background-size: cover;
-      background-position: center;
-      padding: 120px 20px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .buttons button {
-      background-color: #ffce00;
-      border: none;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .buttons button:hover {
-      background-color: #ffd633;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 60px 40px;
-    }
-    .card {
-      background-color: #12256f;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      text-align: center;
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card-text {
-      padding: 20px;
-    }
-    .cta-section {
-      background-color: #0c2a5f;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .cta-section button {
-      background-color: #ffce00;
-      color: black;
-      padding: 15px 30px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    footer {
-      background-color: #09184f;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    #loginModal {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
-    #loginModal .modal-content {
-      background: #fff;
-      color: #000;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 100%;
-    }
-    #loginModal input, #loginModal button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 6px;
-    }
-    #loginModal button {
-      background: #0b3cd9;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-    }
-  </style>
-</head>
-<body>
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
 
-  <header>
-    <h1>BlueInvest</h1>
-    <nav>
-      <a href="#">홈</a>
-      <a onclick="showLogin()">로그인</a>
-      <a onclick="showContact()">문의</a>
-    </nav>
-  </header>
+export default function PagepopLanding() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [tab, setTab] = useState("login");
 
-  <section class="hero">
-    <h2>지금 바로 투자 시작하세요</h2>
-    <p>최고의 분석과 자동화된 전략으로 투자 수익을 높여보세요</p>
-    <div class="buttons">
-      <button onclick="showLogin()">1분 만에 시작하기</button>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-700 to-blue-900 text-white">
+      <header className="flex items-center justify-between p-6 bg-blue-800">
+        <div className="text-2xl font-bold">Pagepop</div>
+        <nav className="flex gap-4">
+          <Button variant="ghost" className="text-white">회사소개</Button>
+          {!loggedIn && (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="text-white border-white hover:bg-blue-600">
+                  로그인
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="bg-white text-black">
+                <Tabs defaultValue="login" value={tab} onValueChange={setTab}>
+                  <TabsList className="grid w-full grid-cols-2 mb-4">
+                    <TabsTrigger value="login">로그인</TabsTrigger>
+                    <TabsTrigger value="signup">회원가입</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="login">
+                    <Card>
+                      <CardContent className="space-y-4 p-4">
+                        <Input placeholder="아이디 입력" />
+                        <Input type="password" placeholder="비밀번호 입력" />
+                        <Button className="w-full" onClick={() => setLoggedIn(true)}>로그인</Button>
+                        <div className="text-xs text-gray-500 text-center mt-2">
+                          <p>아이디를 잊으셨나요? 고객센터 또는 등록 이메일 확인</p>
+                          <p>비밀번호를 잊으셨나요? 비밀번호 찾기 링크로 초기화 가능</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                  <TabsContent value="signup">
+                    <Card>
+                      <CardContent className="space-y-4 p-4">
+                        <Input placeholder="아이디 입력" />
+                        <Input placeholder="이메일 입력" />
+                        <Input type="password" placeholder="비밀번호 입력" />
+                        <Button className="w-full" onClick={() => setTab("login")}>회원가입</Button>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+              </DialogContent>
+            </Dialog>
+          )}
+        </nav>
+      </header>
+
+      {loggedIn ? (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-white text-black">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-bold mb-2">Pagepop 투자 멤버십</h2>
+                <p className="text-gray-700">보유량에 따라 다양한 등급과 혜택 제공</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-white text-black">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-bold mb-2">전문가 분석 리포트</h2>
+                <img
+                  src="https://cdn.pixabay.com/photo/2020/09/04/18/36/stocks-5548866_1280.jpg"
+                  alt="분석"
+                  className="rounded-xl shadow-md w-full mt-2"
+                />
+              </CardContent>
+            </Card>
+            <Card className="bg-white text-black">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-bold mb-2">자동 투자 연동</h2>
+                <img
+                  src="https://cdn.pixabay.com/photo/2022/11/21/17/39/technology-7609678_1280.jpg"
+                  alt="자동화"
+                  className="rounded-xl shadow-md w-full mt-2"
+                />
+              </CardContent>
+            </Card>
+            <Card className="bg-white text-black">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-bold mb-2">모바일 완벽 연동</h2>
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/06/09/00/39/mobile-2387080_1280.jpg"
+                  alt="모바일"
+                  className="rounded-xl shadow-md w-full mt-2"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </motion.div>
+      ) : (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 text-center">
+          <h1 className="text-4xl font-bold mb-4">Pagepop에 오신 것을 환영합니다</h1>
+          <p className="text-lg mb-8">투자 전문가와 함께 시작하세요. 빠르고 안전하게 투자 관리가 가능합니다.</p>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="text-lg px-6 py-3 rounded-xl bg-white text-blue-700 font-bold shadow-md">
+                1분만에 로그인하고 시작하기
+              </Button>
+            </DialogTrigger>
+            <DialogContent>로그인 창은 상단 로그인 버튼을 이용해주세요.</DialogContent>
+          </Dialog>
+          <div className="mt-8">
+            <Button variant="ghost" className="text-white text-md">
+              문의하기 (Telegram / Discord)
+            </Button>
+          </div>
+        </motion.div>
+      )}
     </div>
-  </section>
-
-  <section class="features">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1645450738470-3de2e761f96c?fit=crop&w=800&q=80" alt="자동 연동">
-      <div class="card-text">
-        <strong>자동 투자 연동</strong>
-        <p>매매 시스템과 자동 연동으로 번거로움 없이!</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1607083206173-3383f3b2fc07?fit=crop&w=800&q=80" alt="전문가 분석">
-      <div class="card-text">
-        <strong>전문가 리서치 제공</strong>
-        <p>매주 발행되는 전문가 인사이트 리포트</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1587825140708-6fdc1f2a5bc4?fit=crop&w=800&q=80" alt="모바일 연동">
-      <div class="card-text">
-        <strong>모바일 앱 연동</strong>
-        <p>언제 어디서나 실시간 투자 확인 가능</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <button onclick="showLogin()">1분 만에 시작하기</button>
-  </section>
-
-  <footer>
-    © 2025 BlueInvest | 고객센터 문의: support@blueinvest.com<br/>
-    Telegram: @blueinvest | Discord: discord.gg/invest
-  </footer>
-
-  <div id="loginModal">
-    <div class="modal-content">
-      <h2>로그인 또는 회원가입</h2>
-      <input type="text" placeholder="이메일 또는 아이디" />
-      <input type="password" placeholder="비밀번호" />
-      <button onclick="alert('로그인 성공!')">로그인</button>
-      <button onclick="alert('회원가입 페이지로 이동합니다')">회원가입</button>
-      <button onclick="hideLogin()">닫기</button>
-    </div>
-  </div>
-
-  <script>
-    function showLogin() {
-      document.getElementById('loginModal').style.display = 'flex';
-    }
-    function hideLogin() {
-      document.getElementById('loginModal').style.display = 'none';
-    }
-    function showContact() {
-      alert('📱 텔레그램: @blueinvest\n💬 디스코드: discord.gg/invest');
-    }
-  </script>
-
-</body>
-</html>
+  );
+}
