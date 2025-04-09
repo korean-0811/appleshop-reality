@@ -1,49 +1,42 @@
-
 body {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: #fff;
-  color: #222;
 }
-.hero {
-  position: relative;
-  width: 100%;
-}
-.hero-img {
+
+.banner img,
+.footer-banner img {
   width: 100%;
   display: block;
 }
-.overlay-text {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-}
-.intro, .features {
-  padding: 2rem;
-  text-align: center;
-}
-.features {
+
+.section {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  padding: 40px;
+  gap: 40px;
 }
-.feature img {
-  max-width: 100%;
-  border-radius: 10px;
+
+.section.reverse {
+  flex-direction: row-reverse;
 }
-.feature p {
-  margin-top: 0.5rem;
+
+.section img {
+  width: 50%;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-footer {
-  background: #222;
-  color: #eee;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+
+.content {
+  width: 50%;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: #444;
 }
