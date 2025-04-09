@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 투자 분석 - 신뢰 기반 플랫폼</title>
+  <title>Pagepop 코인지갑 투자 플랫폼</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1611078489935-6cf2a01b1a29') no-repeat center center fixed;
       background-size: cover;
-      color: #0a0a0a;
+      color: #111;
     }
     nav {
-      background-color: #0d1b2a;
+      background-color: #0c1d3c;
       padding: 15px;
       display: flex;
       gap: 20px;
+      z-index: 100;
+      position: sticky;
+      top: 0;
     }
     nav a {
       color: white;
@@ -28,7 +31,7 @@
     }
     .container {
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.94);
     }
     .hidden {
       display: none;
@@ -37,6 +40,8 @@
       width: 23%;
       margin: 1%;
       border-radius: 8px;
+      object-fit: cover;
+      height: 180px;
     }
     .popup {
       position: fixed;
@@ -49,33 +54,40 @@
       display: none;
       z-index: 1000;
       border-radius: 10px;
+      width: 300px;
     }
     .popup input {
       margin: 5px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     .btn {
-      padding: 10px 20px;
-      margin-top: 10px;
+      padding: 12px 20px;
+      margin-top: 15px;
       background-color: #00c896;
       border: none;
       color: white;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
     .btn:hover {
-      background-color: #00b488;
+      background-color: #00b07f;
+      transform: scale(1.03);
     }
     .section {
       margin-top: 50px;
     }
     .news img {
-      width: 100px;
-      border-radius: 8px;
-      margin-right: 10px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
-    .gap { margin-top: 30px; }
+    .gap { margin-top: 40px; }
   </style>
 </head>
 <body>
@@ -89,61 +101,54 @@
 
   <div class="container">
     <div id="home" class="section">
-      <h1>환영합니다</h1>
-      <p>저희 회사는 AI 분석을 통해 최적의 투자 전략을 제공합니다. 보안이 철저하게 유지됩니다.</p>
+      <h1>투자 가능한 코인지갑, Pagepop</h1>
+      <p>AI 분석 기반, 암호화폐 및 주식 자동 분산 포트폴리오 지원. 당신만의 안전한 코인지갑 투자를 시작하세요.</p>
       <div class="images">
-        <img src="https://source.unsplash.com/featured/?finance" alt="투자 이미지 1">
-        <img src="https://source.unsplash.com/featured/?investment" alt="투자 이미지 2">
-        <img src="https://source.unsplash.com/featured/?technology" alt="투자 이미지 3">
-        <img src="https://source.unsplash.com/featured/?security" alt="투자 이미지 4">
+        <img src="https://source.unsplash.com/featured/?crypto-wallet" alt="지갑">
+        <img src="https://source.unsplash.com/featured/?cryptocurrency" alt="암호화폐">
+        <img src="https://source.unsplash.com/featured/?stock-market" alt="주식">
+        <img src="https://source.unsplash.com/featured/?blockchain" alt="블록체인">
       </div>
     </div>
 
     <div id="about" class="section hidden">
       <h2>회사소개</h2>
       <p>
-        저희 회사는 인공지능(AI) 기반의 데이터 분석과 금융 기술을 접목하여,
-        보다 정확하고 신속한 투자 결정을 지원합니다.<br>
-        1. 대규모 데이터 수집 및 정제<br>
-        2. 머신러닝 모델을 활용한 예측<br>
-        3. 실시간 위험 분석 및 분산 투자 설계<br>
-        4. 안전하고 철저한 사용자 자산 보안 시스템<br>
-        5. 글로벌 투자 트렌드에 대한 동적 분석<br>
-        6. 전용 금융 플랫폼 연동을 통한 편리한 자산 운용<br>
-        7. 고객별 맞춤형 투자 로드맵 제시<br>
-        8. 지속적인 포트폴리오 리밸런싱<br>
-        9. 업계 최고 수준의 보안과 프라이버시 보호<br>
-        10. 투자 성과 분석 및 리포트 자동화<br>
-        등등 총 30줄 이상의 AI 기반 전략을 바탕으로 서비스를 제공합니다.
+        Pagepop은 AI와 보안 기술을 바탕으로 한 신개념 디지털 자산 관리 플랫폼입니다. 고객의 투자 성향과 시장 트렌드를 실시간 분석하여, 코인 및 주식 자산을 자동으로 재구성하고 최적화된 수익 전략을 제공합니다. Pagepop은 다음 기능을 제공합니다:
+        <br><br>
+        • AI 투자 시뮬레이션<br>
+        • 자동 코인 분산 투자<br>
+        • 실시간 리스크 분석<br>
+        • 보안 강화를 위한 2FA 인증<br>
+        • 매주 AI 분석 리포트 제공<br>
+        • 멀티지갑 연동 및 자산 통합 뷰<br>
+        • 탈중앙화된 토큰 관리 지원 등.
       </p>
     </div>
 
     <div id="news" class="section hidden">
       <h2>보도자료</h2>
-      <div class="news">
-        <img src="https://source.unsplash.com/featured/?newspaper" alt="보도자료 이미지 1">
-        <span>보도자료 내용 1</span>
-      </div>
-      <div class="news">
-        <img src="https://source.unsplash.com/featured/?meeting" alt="보도자료 이미지 2">
-        <span>보도자료 내용 2</span>
-      </div>
+      <img src="https://source.unsplash.com/featured/?bitcoin,news" alt="뉴스 이미지">
+      <p>2025년 3월 - Pagepop, 코인지갑 기반 자동 투자 기능 공식 출시</p>
+      <img src="https://source.unsplash.com/featured/?ai,finance" alt="보도자료 이미지">
+      <p>AI 금융 포럼 2025 참여 - AI 기반 암호화폐 분석 사례 발표</p>
     </div>
 
     <div id="apply" class="section hidden">
       <h2>투자신청</h2>
-      <a href="https://discord.com" class="btn">투자 신청하기 (디스코드 연결)</a>
+      <p>디스코드 연결을 통해 1:1 투자 컨설팅을 예약하세요.</p>
+      <a href="https://discord.com" class="btn" target="_blank">디스코드로 투자신청</a>
       <div class="gap"></div>
     </div>
   </div>
 
   <div class="popup" id="loginPopup">
     <h3>로그인</h3>
-    <label>아이디: <input type="text" /></label><br>
-    <label>비밀번호: <input type="password" /></label><br>
+    <input type="text" placeholder="아이디">
+    <input type="password" placeholder="비밀번호">
     <button class="btn">로그인</button>
     <p>계정이 없으신가요? <a href="#">회원가입</a></p>
-    <button onclick="toggleLogin()">×</button>
+    <button onclick="toggleLogin()" class="btn">닫기</button>
   </div>
 
   <script>
