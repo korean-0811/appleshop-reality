@@ -1,100 +1,122 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pagepop 투자 플랫폼</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-  <script defer>
-    document.addEventListener("DOMContentLoaded", () => {
-      const loginBtn = document.getElementById("loginBtn");
-      const signupBtn = document.getElementById("signupBtn");
-      const loginForm = document.getElementById("loginForm");
-      const signupForm = document.getElementById("signupForm");
-      const mainPage = document.getElementById("mainPage");
-      const showLogin = document.getElementById("showLogin");
-      const showSignup = document.getElementById("showSignup");
-
-      loginBtn.onclick = () => {
-        loginForm.style.display = "block";
-        signupForm.style.display = "none";
-        mainPage.style.display = "none";
-      }
-      signupBtn.onclick = () => {
-        loginForm.style.display = "none";
-        signupForm.style.display = "block";
-        mainPage.style.display = "none";
-      }
-      showLogin.onclick = () => {
-        loginForm.style.display = "block";
-        signupForm.style.display = "none";
-      }
-      showSignup.onclick = () => {
-        signupForm.style.display = "block";
-        loginForm.style.display = "none";
-      }
-      document.getElementById("doLogin").onclick = () => {
-        loginForm.style.display = "none";
-        mainPage.style.display = "block";
-      }
-    });
-  </script>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="navbar">
     <div class="logo">Pagepop</div>
     <nav>
-      <button id="loginBtn">로그인</button>
-      <button id="signupBtn">회원가입</button>
-      <a href="#" class="link">회사소개</a>
+      <a href="#home">홈</a>
+      <a href="#about">회사소개</a>
+      <button class="login-btn" onclick="toggleDialog('login')">로그인</button>
     </nav>
   </header>
 
-  <main>
-    <section id="loginForm" style="display:none;">
-      <h2>로그인</h2>
-      <input type="text" placeholder="아이디">
-      <input type="password" placeholder="비밀번호">
-      <button id="doLogin">로그인</button>
-      <p><a href="#">아이디를 잊으셨나요?</a> | <a href="#">비밀번호를 잊으셨나요?</a></p>
-      <p><button id="showSignup">회원가입으로 이동</button></p>
-    </section>
-
-    <section id="signupForm" style="display:none;">
-      <h2>회원가입</h2>
-      <input type="text" placeholder="아이디">
-      <input type="password" placeholder="비밀번호">
-      <input type="password" placeholder="비밀번호 확인">
-      <button>가입하기</button>
-      <p><button id="showLogin">로그인으로 이동</button></p>
-    </section>
-
-    <section id="mainPage">
-      <h1>Pagepop 투자 멤버십</h1>
-      <p>보유량에 따라 다양한 등급과 혜택 제공</p>
-
-      <div class="features">
-        <div>
-          <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="분석">
-          <h3>전문가 분석 리포트</h3>
-        </div>
-        <div>
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="자동화">
-          <h3>자동 투자 연동</h3>
-        </div>
-        <div>
-          <img src="https://cdn-icons-png.flaticon.com/512/2436/2436635.png" alt="모바일">
-          <h3>모바일 완벽 연동</h3>
-        </div>
-      </div>
-
-      <section class="cta">
-        <h2>Pagepop에 오신 것을 환영합니다</h2>
-        <p>투자 전문가와 함께 시작하세요. 빠르고 안전하게 투자 관리가 가능합니다.</p>
-        <a href="https://t.me/yourtelegram" class="contact">📩 문의하기 (Telegram / Discord)</a>
-      </section>
-    </section>
+  <main class="hero-section" id="home">
+    <div class="hero-content">
+      <h1>Pagepop 투자 플랫폼</h1>
+      <p>투자 전문가와 함께 시작하세요. 빠르고 안전하게 투자 관리가 가능합니다.</p>
+      <button class="cta-btn" onclick="toggleDialog('login')">1분만에 시작하기</button>
+    </div>
   </main>
+
+  <section class="features">
+    <div class="feature">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685686.png" alt="분석" />
+      <h3>전문가 분석 리포트</h3>
+      <p>시장 데이터를 기반으로 정확한 분석 제공</p>
+    </div>
+    <div class="feature">
+      <img src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt="자동화" />
+      <h3>자동 투자 연동</h3>
+      <p>설정만 하면 자동 투자 실행</p>
+    </div>
+    <div class="feature">
+      <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="모바일" />
+      <h3>모바일 완벽 연동</h3>
+      <p>언제 어디서나 투자가능</p>
+    </div>
+  </section>
+
+  <section class="membership">
+    <h2>Pagepop 투자 멤버십</h2>
+    <p>보유량에 따라 다양한 등급과 혜택 제공</p>
+    <div class="tiers">
+      <div class="tier">
+        <h3>VVIP</h3>
+        <p>5% 혜택</p>
+      </div>
+      <div class="tier">
+        <h3>VIP</h3>
+        <p>3% 혜택</p>
+      </div>
+      <div class="tier">
+        <h3>골드</h3>
+        <p>2% 혜택</p>
+      </div>
+      <div class="tier">
+        <h3>실버</h3>
+        <p>1% 혜택</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <button onclick="toggleDialog('contact')">문의하기 (Telegram / Discord)</button>
+  </footer>
+
+  <!-- 로그인/회원가입 다이얼로그 -->
+  <div id="login-dialog" class="dialog hidden">
+    <div class="dialog-content">
+      <span class="close" onclick="toggleDialog('login')">&times;</span>
+      <h2>로그인</h2>
+      <input type="text" placeholder="아이디" />
+      <input type="password" placeholder="비밀번호" />
+      <div class="sub-links">
+        <a href="#">아이디를 잊으셨나요?</a>
+        <a href="#">비밀번호를 잊으셨나요?</a>
+      </div>
+      <button>로그인</button>
+      <p>계정이 없으신가요? <a href="#" onclick="switchToRegister()">회원가입</a></p>
+    </div>
+  </div>
+
+  <div id="register-dialog" class="dialog hidden">
+    <div class="dialog-content">
+      <span class="close" onclick="toggleDialog('register')">&times;</span>
+      <h2>회원가입</h2>
+      <input type="text" placeholder="아이디" />
+      <input type="email" placeholder="이메일" />
+      <input type="password" placeholder="비밀번호" />
+      <button>가입하기</button>
+    </div>
+  </div>
+
+  <div id="contact-dialog" class="dialog hidden">
+    <div class="dialog-content">
+      <span class="close" onclick="toggleDialog('contact')">&times;</span>
+      <h2>문의하기</h2>
+      <p>Telegram: @pagepop
+        <br>Discord: discord.gg/pagepop</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleDialog(type) {
+      document.querySelectorAll('.dialog').forEach(d => d.classList.add('hidden'));
+      if (type === 'login') document.getElementById('login-dialog').classList.toggle('hidden');
+      if (type === 'register') document.getElementById('register-dialog').classList.toggle('hidden');
+      if (type === 'contact') document.getElementById('contact-dialog').classList.toggle('hidden');
+    }
+    function switchToRegister() {
+      document.getElementById('login-dialog').classList.add('hidden');
+      document.getElementById('register-dialog').classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
