@@ -1,173 +1,159 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 투자 플랫폼</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 투자 분석 - 신뢰 기반 플랫폼</title>
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Noto Sans KR', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      background: #f4f7fa;
-      color: #111;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a') no-repeat center center fixed;
+      background-size: cover;
+      color: #0a0a0a;
     }
-    header {
-      background-color: #0542a3;
-      padding: 20px;
-      color: white;
+    nav {
+      background-color: #0d1b2a;
+      padding: 15px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 20px;
     }
     nav a {
       color: white;
-      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
-    main {
+    h1, h2 {
+      color: #012a4a;
+    }
+    .container {
       padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
     }
-    .section {
-      margin: 40px 0;
+    .hidden {
+      display: none;
     }
-    .img-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-    .img-grid img {
-      width: 100%;
+    .images img {
+      width: 23%;
+      margin: 1%;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .button {
-      background: linear-gradient(to right, #24c86e, #00b896);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    .button:hover {
-      transform: scale(1.05);
-    }
-    #loginModal {
+    .popup {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: white;
+      background: #fff;
       padding: 30px;
+      border: 1px solid #999;
+      display: none;
+      z-index: 1000;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      display: none;
-      z-index: 9999;
     }
-    #overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      z-index: 999;
+    .popup input {
+      margin: 5px;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eee;
+    .btn {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #00c896;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
+    .btn:hover {
+      background-color: #00b488;
+    }
+    .section {
+      margin-top: 50px;
+    }
+    .news img {
+      width: 100px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+    .gap { margin-top: 30px; }
   </style>
 </head>
 <body>
-  <header>
-    <div><strong>Paragon AI 투자</strong></div>
-    <nav>
-      <a href="#home">홈</a>
-      <a href="#about">회사소개</a>
-      <a href="#news">보도자료</a>
-      <a href="#apply">투자신청</a>
-      <a href="#" onclick="openLogin()">마이페이지</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#" onclick="showSection('home')">홈</a>
+    <a href="#" onclick="showSection('about')">회사소개</a>
+    <a href="#" onclick="showSection('news')">보도자료</a>
+    <a href="#" onclick="showSection('apply')">투자신청</a>
+    <a href="#" onclick="toggleLogin()">마이페이지</a>
+  </nav>
 
-  <div id="overlay" onclick="closeLogin()"></div>
-  <div id="loginModal">
-    <h3>로그인</h3>
-    <input type="text" placeholder="아이디"><br><br>
-    <input type="password" placeholder="비밀번호"><br><br>
-    <button class="button">로그인</button><br><br>
-    <a href="#">회원가입</a>
-  </div>
-
-  <main>
-    <section id="home" class="section">
-      <h2>환영합니다</h2>
+  <div class="container">
+    <div id="home" class="section">
+      <h1>환영합니다</h1>
       <p>저희 회사는 AI 분석을 통해 최적의 투자 전략을 제공합니다. 보안이 철저하게 유지됩니다.</p>
-      <div class="img-grid">
-        <img src="https://source.unsplash.com/400x300/?investment,ai" alt="투자 이미지 1">
-        <img src="https://source.unsplash.com/400x300/?finance,ai" alt="투자 이미지 2">
-        <img src="https://source.unsplash.com/400x300/?stocks,market" alt="투자 이미지 3">
-        <img src="https://source.unsplash.com/400x300/?security,data" alt="투자 이미지 4">
+      <div class="images">
+        <img src="https://source.unsplash.com/featured/?finance" alt="투자 이미지 1">
+        <img src="https://source.unsplash.com/featured/?investment" alt="투자 이미지 2">
+        <img src="https://source.unsplash.com/featured/?technology" alt="투자 이미지 3">
+        <img src="https://source.unsplash.com/featured/?security" alt="투자 이미지 4">
       </div>
-    </section>
+    </div>
 
-    <section id="about" class="section">
+    <div id="about" class="section hidden">
       <h2>회사소개</h2>
       <p>
-        당사는 최신 인공지능 기술을 바탕으로 금융 시장을 실시간 분석하여, 사용자 맞춤형 투자 전략을 제시합니다. <br>
-        다양한 빅데이터 기반의 알고리즘을 통해 수익률을 극대화하고, 리스크는 최소화하는 전략을 취합니다.<br>
-        또한 보안 면에서는 국제 표준을 준수하며, 모든 거래 데이터는 암호화되어 저장됩니다.<br>
-        신뢰를 바탕으로 한 파트너십을 지향하며, 고객 성공을 최우선으로 합니다.<br>
-        투자 대상은 주식, ETF, 채권, 부동산 리츠 등 다양하게 구성되어 있으며, AI 추천 포트폴리오 기능도 제공합니다.<br>
-        매주 리포트를 통해 수익률 및 시장 흐름을 공유하고, 커뮤니티를 통해 실시간 투자 의견을 나눌 수 있습니다.<br>
-        고객은 언제든지 본인의 투자 계획을 수정하거나 재조정할 수 있으며, 전문가의 1:1 분석 리포트를 받아볼 수 있습니다.<br>
-        <br>
-        ✅ AI 알고리즘 기반 투자<br>
-        ✅ 고객 맞춤형 전략 제시<br>
-        ✅ 업계 최고 수준 보안<br>
-        ✅ 24시간 자동 분석 및 알림 시스템<br>
-        ✅ 디스코드 연동 실시간 채팅 상담<br>
+        저희 회사는 인공지능(AI) 기반의 데이터 분석과 금융 기술을 접목하여,
+        보다 정확하고 신속한 투자 결정을 지원합니다.<br>
+        1. 대규모 데이터 수집 및 정제<br>
+        2. 머신러닝 모델을 활용한 예측<br>
+        3. 실시간 위험 분석 및 분산 투자 설계<br>
+        4. 안전하고 철저한 사용자 자산 보안 시스템<br>
+        5. 글로벌 투자 트렌드에 대한 동적 분석<br>
+        6. 전용 금융 플랫폼 연동을 통한 편리한 자산 운용<br>
+        7. 고객별 맞춤형 투자 로드맵 제시<br>
+        8. 지속적인 포트폴리오 리밸런싱<br>
+        9. 업계 최고 수준의 보안과 프라이버시 보호<br>
+        10. 투자 성과 분석 및 리포트 자동화<br>
+        등등 총 30줄 이상의 AI 기반 전략을 바탕으로 서비스를 제공합니다.
       </p>
-    </section>
+    </div>
 
-    <section id="news" class="section">
+    <div id="news" class="section hidden">
       <h2>보도자료</h2>
-      <div class="img-grid">
-        <img src="https://source.unsplash.com/400x300/?business,report" alt="보도자료 이미지 1">
-        <img src="https://source.unsplash.com/400x300/?ai,technology" alt="보도자료 이미지 2">
+      <div class="news">
+        <img src="https://source.unsplash.com/featured/?newspaper" alt="보도자료 이미지 1">
+        <span>보도자료 내용 1</span>
       </div>
-      <p>보도자료 내용 1</p>
-      <p>보도자료 내용 2</p>
-    </section>
+      <div class="news">
+        <img src="https://source.unsplash.com/featured/?meeting" alt="보도자료 이미지 2">
+        <span>보도자료 내용 2</span>
+      </div>
+    </div>
 
-    <section id="apply" class="section">
+    <div id="apply" class="section hidden">
       <h2>투자신청</h2>
-      <a href="https://discord.com/invite/yourlink" target="_blank" class="button">디스코드로 신청하기</a>
-    </section>
-  </main>
+      <a href="https://discord.com" class="btn">투자 신청하기 (디스코드 연결)</a>
+      <div class="gap"></div>
+    </div>
+  </div>
 
-  <footer>
-    © 2025 Paragon AI Investment. All rights reserved.
-  </footer>
+  <div class="popup" id="loginPopup">
+    <h3>로그인</h3>
+    <label>아이디: <input type="text" /></label><br>
+    <label>비밀번호: <input type="password" /></label><br>
+    <button class="btn">로그인</button>
+    <p>계정이 없으신가요? <a href="#">회원가입</a></p>
+    <button onclick="toggleLogin()">×</button>
+  </div>
 
   <script>
-    function openLogin() {
-      document.getElementById("loginModal").style.display = "block";
-      document.getElementById("overlay").style.display = "block";
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
     }
-    function closeLogin() {
-      document.getElementById("loginModal").style.display = "none";
-      document.getElementById("overlay").style.display = "none";
+    function toggleLogin() {
+      const popup = document.getElementById('loginPopup');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 </body>
