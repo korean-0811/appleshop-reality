@@ -1,97 +1,105 @@
 /* styles.css */
-
-/* 기본 스타일 */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
-  background-image: url('background.jpg');
+  background: url('images/background.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
+  color: #f1f1f1;
 }
 
-/* 네비게이션 바 스타일 */
 nav {
-  background-color: #1a2a6c;
-  padding: 1em;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  background-color: #0c1d3c;
+  padding: 15px;
   display: flex;
-  justify-content: space-around;
+  gap: 20px;
+  justify-content: center;
 }
 
 nav a {
-  color: white;
+  color: #f1f1f1;
   text-decoration: none;
-}
-
-/* 섹션 스타일 */
-section {
-  padding: 2em;
-}
-
-.image-gallery {
-  display: flex;
-  justify-content: space-around;
-}
-
-.image-gallery img {
-  width: 23%;
-  border-radius: 8px;
-}
-
-/* 모달 스타일 */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
   font-weight: bold;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.container {
+  padding: 30px;
+  max-width: 960px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* 투자신청 버튼 스타일 */
-.apply-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
+h1, h2 {
+  color: #00f0ff;
+}
+
+.hidden {
+  display: none;
+}
+
+.images img {
+  width: 23%;
+  margin: 1%;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 160px;
+  border: 1px solid #333;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #222;
+  padding: 30px;
+  border: 1px solid #444;
+  display: none;
+  z-index: 1000;
+  border-radius: 10px;
+  width: 320px;
   color: white;
-  background-color: #1DB954;
-  border: none;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: background-color 0.3s;
 }
 
-.apply-button:hover {
-  background-color: #1ed760;
+.popup input {
+  margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: #111;
+  color: #fff;
+}
+
+.btn {
+  padding: 12px 20px;
+  margin-top: 15px;
+  background-color: #00bfff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #008ecc;
+  transform: scale(1.03);
+}
+
+.section {
+  margin-top: 50px;
+}
+
+.news img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.gap {
+  margin-top: 40px;
 }
