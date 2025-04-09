@@ -9,11 +9,11 @@
     body {
       font-family: 'Noto Sans KR', sans-serif;
       margin: 0;
-      background: #f5f7fa;
+      background: #f4f6f9;
       color: #333;
     }
     header {
-      background: #003c8f;
+      background: #1a2a6c;
       color: white;
       padding: 16px 24px;
       display: flex;
@@ -26,9 +26,10 @@
       margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
+      cursor: pointer;
     }
     .hero {
-      background: url('https://www.vcs.go.kr/images/main/mainVisual01.jpg') no-repeat center/cover;
+      background: url('https://images.unsplash.com/photo-1549921296-3a6b3c64e62c') no-repeat center/cover;
       height: 320px;
       display: flex;
       align-items: center;
@@ -42,11 +43,29 @@
       padding: 10px 20px;
       border-radius: 8px;
     }
+    .about {
+      background: white;
+      padding: 40px;
+      max-width: 1000px;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .about h2 {
+      color: #1a2a6c;
+      margin-bottom: 16px;
+    }
+    .about p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+    .stats, .main-nav, .boards {
+      padding: 30px;
+    }
     .stats {
       display: flex;
       justify-content: space-around;
-      background: white;
-      padding: 30px 0;
+      background: #ffffff;
       text-align: center;
     }
     .stat {
@@ -56,17 +75,16 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 16px;
-      padding: 30px;
       background: #fff;
     }
     .main-nav a {
       display: block;
-      background: #f0f4f8;
+      background: #e2eafc;
       padding: 20px;
       text-align: center;
       border-radius: 12px;
       text-decoration: none;
-      color: #003c8f;
+      color: #1a2a6c;
       font-weight: bold;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
@@ -74,7 +92,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      padding: 30px;
     }
     .board {
       flex: 1;
@@ -87,19 +104,44 @@
     .board h3 {
       font-size: 1.2rem;
       margin-bottom: 10px;
-      color: #003c8f;
+      color: #1a2a6c;
     }
-    .board ul {
-      list-style: none;
-      padding: 0;
+    .login-modal, .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      justify-content: center;
+      align-items: center;
     }
-    .board li {
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-      font-size: 0.95rem;
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 99;
+    }
+    .login-modal {
+      z-index: 100;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .login-modal input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .login-modal button {
+      background: #1a2a6c;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
     }
     footer {
-      background: #002858;
+      background: #0d1b3e;
       color: #aaa;
       text-align: center;
       font-size: 0.9rem;
@@ -112,14 +154,26 @@
   <header>
     <h1>Pagepop 벤처포털</h1>
     <nav>
-      <a href="#">회사소개</a>
+      <a onclick="openLogin()">마이페이지</a>
+      <a href="#about">회사소개</a>
       <a href="#">공지사항</a>
-      <a href="#">마이페이지</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Pagepop과 함께하는 투자혁신 플랫폼</h2>
+    <h2>Pagepop과 함께하는 인공지능 투자혁신</h2>
+  </section>
+
+  <section id="about" class="about">
+    <h2>회사소개</h2>
+    <p>Pagepop은 투자와 기술의 경계를 허물며, 인공지능 기반 분석 시스템을 활용한 차세대 투자 플랫폼입니다. 기존의 직관과 감에 의존하는 투자방식에서 벗어나, 방대한 시장 데이터를 AI가 분석하여 최적의 투자 타이밍과 종목을 제시합니다.</p>
+    <p>우리는 고객의 성공을 최우선 가치로 삼으며, 개인부터 기관까지 모든 투자자가 효율적이고 안정적인 자산관리를 할 수 있도록 돕습니다. 실시간 뉴스, 종목 변동성 감지, 리스크 평가 등 다양한 기능을 갖춘 분석 엔진은 최고의 신뢰성을 자랑합니다.</p>
+    <p>Pagepop은 다음과 같은 비전을 갖고 있습니다:</p>
+    <p>- AI 기반 투자판단 자동화</p>
+    <p>- 전 세계 증시 및 코인시장 통합 분석 제공</p>
+    <p>- 사용자 맞춤형 자산관리 대시보드 구축</p>
+    <p>- 데이터 기반의 장기적 수익성 확보</p>
+    <p>지금 Pagepop과 함께 금융의 미래를 경험하세요. 기술의 힘으로 더 나은 투자 세상을 만들어갑니다.</p>
   </section>
 
   <section class="stats">
@@ -138,7 +192,7 @@
     <a href="#">투자신청</a>
     <a href="#">자료제출</a>
     <a href="#">정책안내</a>
-    <a href="#">IR참여</a>
+    <a href="#">AI 리포트</a>
     <a href="#">보도자료</a>
     <a href="#">FAQ</a>
   </section>
@@ -162,9 +216,29 @@
     </div>
   </section>
 
+  <div class="overlay" id="overlay" onclick="closeLogin()"></div>
+  <div class="login-modal" id="loginModal">
+    <h3>로그인 또는 회원가입</h3>
+    <input type="text" placeholder="아이디">
+    <input type="password" placeholder="비밀번호">
+    <button onclick="alert('로그인되었습니다!')">로그인</button>
+    <button onclick="alert('회원가입 페이지로 이동')">회원가입</button>
+  </div>
+
   <footer>
     ⓒ 2025 Pagepop | 대표자: 홍길동 | 사업자등록번호: 123-45-67890<br/>
     주소: 서울특별시 강남구 테헤란로 123 | 이메일: contact@pagepop.io
   </footer>
+
+  <script>
+    function openLogin() {
+      document.getElementById('loginModal').style.display = 'flex';
+      document.getElementById('overlay').style.display = 'flex';
+    }
+    function closeLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
