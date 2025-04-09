@@ -1,14 +1,77 @@
-<section class="feature-boxes">
-  <div class="feature-box">
-    <img src="section1.png" alt="설명1" />
-    <h3>빠르게 합류하고</h3>
-    <p>얼리버드 혜택을 받으세요</p>
-    <button>자세히 보기</button>
-  </div>
-  <div class="feature-box">
-    <img src="section2.png" alt="설명2" />
-    <h3>앱스토어 인기차트 9위</h3>
-    <p>4개월만에 이룬 성과</p>
-    <button>성과 보러가기</button>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagepop - 개발자 사이트</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="logo">pagepop</div>
+        <nav>
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#portfolio">포트폴리오</a></li>
+                <li><a href="#tech">기술 스택</a></li>
+                <li><a href="#blog">블로그</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 주요 배너 -->
+    <section id="home" class="hero">
+        <h1>당신의 아이디어를 실현하는 개발자</h1>
+        <p>모든 프로젝트는 꿈에서 시작됩니다. 제가 도와드릴게요.</p>
+        <a href="#contact" class="cta-btn">연락하기</a>
+    </section>
+
+    <!-- 포트폴리오 -->
+    <section id="portfolio" class="portfolio">
+        <h2>포트폴리오</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>프로젝트 1</h3>
+                <p>프로젝트 설명</p>
+            </div>
+            <div class="project-card">
+                <h3>프로젝트 2</h3>
+                <p>프로젝트 설명</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기술 스택 -->
+    <section id="tech" class="tech-stack">
+        <h2>기술 스택</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React, Node.js</li>
+            <li>Python, Django</li>
+        </ul>
+    </section>
+
+    <!-- 블로그 -->
+    <section id="blog" class="blog">
+        <h2>블로그</h2>
+        <p>개발 관련 글을 공유합니다.</p>
+    </section>
+
+    <!-- 연락처 -->
+    <section id="contact" class="contact">
+        <h2>연락처</h2>
+        <form>
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">보내기</button>
+        </form>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2025 pagepop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
