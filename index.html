@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paragon Pay</title>
+  <title>귀하의 업체명</title>
   <style>
     /* 기본 스타일 초기화 */
     * {
@@ -15,180 +15,123 @@
     /* 배경 및 기본 글꼴 설정 */
     body {
       font-family: 'Pretendard', sans-serif;
-      background: linear-gradient(135deg, #003c8f, #002d6c);
+      background-color: #f4f4f4;
       color: #333;
       line-height: 1.6;
     }
 
     /* 헤더 스타일 */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
+      background-color: #005bac;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
     }
 
-    header img {
-      height: 32px;
+    header h1 {
+      margin: 0;
+      font-size: 2em;
     }
 
-    nav span {
-      margin-left: 16px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #003c8f;
+    /* 내비게이션 스타일 */
+    nav {
+      background-color: #004b8d;
+      padding: 10px;
+      text-align: center;
     }
 
-    nav span:hover {
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
       text-decoration: underline;
     }
 
-    /* 컨테이너 스타일 */
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 24px;
-      background: #f8f9fc;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    /* 배너 스타일 */
-    .membership-banner {
-      background: url('data:image/png;base64,{{BASE64_IMAGE_DATA}}') no-repeat center/cover;
-      height: 180px;
-      border-radius: 12px;
-      margin-bottom: 24px;
-    }
-
-    /* 멤버십 카드 스타일 */
-    .membership-card {
-      background: linear-gradient(135deg, #0055cc, #007bff);
-      color: #fff;
+    /* 메인 콘텐츠 스타일 */
+    main {
       padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 24px;
-      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .membership-card h2 {
-      margin-bottom: 8px;
+    section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .membership-card p {
-      margin: 8px 0;
-    }
-
-    .membership-card button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #fff;
-      border: none;
-      color: #007bff;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .membership-card button:hover {
-      background: #e6e6e6;
-      transform: scale(1.05);
-    }
-
-    /* 등급 섹션 스타일 */
-    .tiers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-    }
-
-    .tier {
-      background: #fff;
-      border-radius: 12px;
-      text-align: center;
-      padding: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .tier h3 {
-      margin-bottom: 8px;
-      color: #000;
-    }
-
-    .tier p {
-      font-size: 14px;
-      color: #666;
+    section h2 {
+      margin-top: 0;
+      color: #005bac;
     }
 
     /* 푸터 스타일 */
     footer {
+      background-color: #333;
+      color: #fff;
       text-align: center;
-      padding: 16px;
-      font-size: 12px;
-      color: #aaa;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
     }
 
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- 헤더 -->
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Iconic_image_of_a_payment_app.png/240px-Iconic_image_of_a_payment_app.png" alt="Paragon Pay 로고">
-    <nav>
-      <span>입출금</span>
-      <span>포인트</span>
-      <span>보관함</span>
-      <span>회원가입</span>
-    </nav>
+    <h1>귀하의 업체명</h1>
+    <p>신뢰와 혁신의 파트너</p>
   </header>
 
-  <!-- 메인 컨테이너 -->
-  <div class="container">
-    <!-- 배너 이미지 -->
-    <div class="membership-banner"></div>
+  <!-- 내비게이션 -->
+  <nav>
+    <a href="#about">회사 소개</a>
+    <a href="#services">서비스</a>
+    <a href="#contact">연락처</a>
+  </nav>
 
-    <!-- 멤버십 카드 -->
-    <div class="membership-card">
-      <h2>내 멤버십 정보</h2>
-      <p>등급: <strong>실버</strong> | 할인율: <strong>1%</strong></p>
-      <p>보유 포인트: <strong>204,936</strong> P</p>
-      <button>포인트 스탬프</button>
-      <button>구매하기</button>
-    </div>
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <!-- 회사 소개 섹션 -->
+    <section id="about">
+      <h2>회사 소개</h2>
+      <p>귀하의 업체명은 혁신적인 솔루션과 신뢰성 있는 서비스를 제공하는 기업입니다. 고객 만족을 최우선으로 하며, 지속적인 발전을 추구합니다.</p>
+    </section>
 
-    <!-- 등급 할인제 소개 -->
-    <h2 style="margin-bottom: 16px;">PARAGON의 등급할인제란?</h2>
-    <div class="tiers">
-      <div class="tier">
-        <h3>🥇 VVIP</h3>
-        <p>할인율 5%<br/>보유량 400,000 이상</p>
-      </div>
-      <div class="tier">
-        <h3>🥈 VIP</h3>
-        <p>할인율 3%<br/>보유량 250,000 이상</p>
-      </div>
-      <div class="tier">
-        <h3>🏅 골드</h3>
-        <p>할인율 2%<br/>보유량 190,000 이상</p>
-      </div>
-      <div class="tier">
-        <h3>🔘 실버</h3>
-        <p>할인율 1%<br/>보유량 90,000 이상</p>
-      </div>
-      <div class="tier">
-        <h3>🥉 브론즈</h3>
-        <p>할인율 0%<br/>보유량 50,000 이상</p>
-      </div>
-    </div>
-  </div>
+    <!-- 서비스 섹션 -->
+    <section id="services">
+      <h2>서비스</h2>
+      <p>당사는 다양한 분야에서 전문적인 서비스를 제공합니다. 고객의 니즈에 맞춘 맞춤형 솔루션을 통해 비즈니스 성공을 지원합니다.</p>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact">
+      <h2>연락처</h2>
+      <p>주소: 서울특별시 강남구 테헤란로 123</p>
+      <p>전화: 02-123-4567</p>
+      <p>이메일: info@yourcompany.com</p>
+    </section>
+  </main>
 
   <!-- 푸터 -->
   <footer>
-    ⓒ 2025 Paragon Pay. All rights reserved.
+    <p>&copy; 2025 귀하의 업체명. 모든 권리 보유.</p>
   </footer>
 
 </body>
