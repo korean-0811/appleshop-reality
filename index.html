@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>코인 수수료 페이백</title>
+  <title>블루인베스트 투자</title>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Pretendard', sans-serif;
-      background: linear-gradient(to bottom, #061a40, #0b1d63);
+      background: linear-gradient(to bottom right, #061a40, #0b3cd9);
       color: white;
     }
     header {
-      background: #061a40;
+      background: rgba(6, 26, 64, 0.95);
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
@@ -29,6 +29,7 @@
       text-decoration: none;
       color: #ffce00;
       font-weight: bold;
+      cursor: pointer;
     }
     .hero {
       background-image: url('https://images.unsplash.com/photo-1620207418302-439b387441b0?fit=crop&w=1500&q=80');
@@ -46,7 +47,7 @@
       font-size: 1.2rem;
       margin-bottom: 30px;
     }
-    .hero .buttons button {
+    .buttons button {
       background-color: #ffce00;
       border: none;
       padding: 15px 30px;
@@ -57,7 +58,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .hero .buttons button:hover {
+    .buttons button:hover {
       background-color: #ffd633;
     }
     .features {
@@ -86,10 +87,6 @@
       text-align: center;
       padding: 60px 20px;
     }
-    .cta-section h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
     .cta-section button {
       background-color: #ffce00;
       color: black;
@@ -106,69 +103,110 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+    #loginModal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    #loginModal .modal-content {
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+    }
+    #loginModal input, #loginModal button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+    #loginModal button {
+      background: #0b3cd9;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>CoinPay 페이백</h1>
+    <h1>BlueInvest</h1>
     <nav>
       <a href="#">홈</a>
-      <a href="#">혜택</a>
-      <a href="#">시작하기</a>
-      <a href="#">문의</a>
+      <a onclick="showLogin()">로그인</a>
+      <a onclick="showContact()">문의</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>놓치지 마세요! 최대 60% 수수료 페이백</h2>
-    <p>간단한 가입으로 누적 평균 300만원 환급 혜택!</p>
+    <h2>지금 바로 투자 시작하세요</h2>
+    <p>최고의 분석과 자동화된 전략으로 투자 수익을 높여보세요</p>
     <div class="buttons">
-      <button>무료 신청하기</button>
-      <button>더 알아보기</button>
+      <button onclick="showLogin()">1분 만에 시작하기</button>
     </div>
   </section>
 
   <section class="features">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1639752791300-48da9e4b3cf6?fit=crop&w=800&q=80" alt="자동 페이백">
+      <img src="https://images.unsplash.com/photo-1645450738470-3de2e761f96c?fit=crop&w=800&q=80" alt="자동 연동">
       <div class="card-text">
-        <strong>자동 페이백</strong>
-        <p>매매만 하면 자동으로 수수료를 돌려드립니다.</p>
+        <strong>자동 투자 연동</strong>
+        <p>매매 시스템과 자동 연동으로 번거로움 없이!</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1625217521048-3c63c89eecb7?fit=crop&w=800&q=80" alt="전문가 분석">
+      <img src="https://images.unsplash.com/photo-1607083206173-3383f3b2fc07?fit=crop&w=800&q=80" alt="전문가 분석">
       <div class="card-text">
-        <strong>전문가 분석 제공</strong>
-        <p>시장 상황에 맞춘 전략 리포트 제공.</p>
+        <strong>전문가 리서치 제공</strong>
+        <p>매주 발행되는 전문가 인사이트 리포트</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?fit=crop&w=800&q=80" alt="실시간 뉴스">
+      <img src="https://images.unsplash.com/photo-1587825140708-6fdc1f2a5bc4?fit=crop&w=800&q=80" alt="모바일 연동">
       <div class="card-text">
-        <strong>실시간 알림</strong>
-        <p>급등락 뉴스, 공지사항 즉시 전달.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1630348538248-dbae0c6a4505?fit=crop&w=800&q=80" alt="모바일 연동">
-      <div class="card-text">
-        <strong>모바일 연동</strong>
-        <p>스마트폰으로 간편하게 확인하고 환급받기.</p>
+        <strong>모바일 앱 연동</strong>
+        <p>언제 어디서나 실시간 투자 확인 가능</p>
       </div>
     </div>
   </section>
 
   <section class="cta-section">
-    <h3>지금 바로 신청하고 수익률을 올리세요!</h3>
-    <button>1분 만에 시작하기</button>
+    <button onclick="showLogin()">1분 만에 시작하기</button>
   </section>
 
   <footer>
-    © 2025 Coin Pay Refund | 모든 권리 보유<br/>
-    고객센터: support@coinpay.com
+    © 2025 BlueInvest | 고객센터 문의: support@blueinvest.com<br/>
+    Telegram: @blueinvest | Discord: discord.gg/invest
   </footer>
+
+  <div id="loginModal">
+    <div class="modal-content">
+      <h2>로그인 또는 회원가입</h2>
+      <input type="text" placeholder="이메일 또는 아이디" />
+      <input type="password" placeholder="비밀번호" />
+      <button onclick="alert('로그인 성공!')">로그인</button>
+      <button onclick="alert('회원가입 페이지로 이동합니다')">회원가입</button>
+      <button onclick="hideLogin()">닫기</button>
+    </div>
+  </div>
+
+  <script>
+    function showLogin() {
+      document.getElementById('loginModal').style.display = 'flex';
+    }
+    function hideLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+    function showContact() {
+      alert('📱 텔레그램: @blueinvest\n💬 디스코드: discord.gg/invest');
+    }
+  </script>
 
 </body>
 </html>
