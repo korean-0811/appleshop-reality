@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pagepop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paragon Pay</title>
   <style>
+    /* 기본 스타일 초기화 */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* 배경 및 기본 글꼴 설정 */
     body {
       font-family: 'Pretendard', sans-serif;
       background: linear-gradient(135deg, #003c8f, #002d6c);
       color: #333;
+      line-height: 1.6;
     }
 
+    /* 헤더 스타일 */
     header {
       display: flex;
       justify-content: space-between;
@@ -30,30 +34,51 @@
       height: 32px;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px;
-      background: #f8f9fc;
+    nav span {
+      margin-left: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #003c8f;
     }
 
+    nav span:hover {
+      text-decoration: underline;
+    }
+
+    /* 컨테이너 스타일 */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 24px;
+      background: #f8f9fc;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* 배너 스타일 */
     .membership-banner {
-      background: url('data:image/png;base64,{{BASE64_REPLACED}}') no-repeat center/cover;
+      background: url('data:image/png;base64,{{BASE64_IMAGE_DATA}}') no-repeat center/cover;
       height: 180px;
       border-radius: 12px;
       margin-bottom: 24px;
     }
 
+    /* 멤버십 카드 스타일 */
     .membership-card {
       background: linear-gradient(135deg, #0055cc, #007bff);
       color: #fff;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 24px;
+      text-align: center;
     }
 
     .membership-card h2 {
       margin-bottom: 8px;
+    }
+
+    .membership-card p {
+      margin: 8px 0;
     }
 
     .membership-card button {
@@ -65,8 +90,15 @@
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
+    .membership-card button:hover {
+      background: #e6e6e6;
+      transform: scale(1.05);
+    }
+
+    /* 등급 섹션 스타일 */
     .tiers {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -91,6 +123,7 @@
       color: #666;
     }
 
+    /* 푸터 스타일 */
     footer {
       text-align: center;
       padding: 16px;
@@ -102,19 +135,23 @@
 </head>
 <body>
 
+  <!-- 헤더 -->
   <header>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Iconic_image_of_a_payment_app.png/240px-Iconic_image_of_a_payment_app.png" alt="Paragon Pay 로고">
     <nav>
-      <span>입출금</span> |
-      <span>포인트</span> |
-      <span>보관함</span> |
-      <span>회원권</span>
+      <span>입출금</span>
+      <span>포인트</span>
+      <span>보관함</span>
+      <span>회원가입</span>
     </nav>
   </header>
 
+  <!-- 메인 컨테이너 -->
   <div class="container">
+    <!-- 배너 이미지 -->
     <div class="membership-banner"></div>
 
+    <!-- 멤버십 카드 -->
     <div class="membership-card">
       <h2>내 멤버십 정보</h2>
       <p>등급: <strong>실버</strong> | 할인율: <strong>1%</strong></p>
@@ -123,33 +160,35 @@
       <button>구매하기</button>
     </div>
 
+    <!-- 등급 할인제 소개 -->
     <h2 style="margin-bottom: 16px;">PARAGON의 등급할인제란?</h2>
     <div class="tiers">
       <div class="tier">
         <h3>🥇 VVIP</h3>
-        <p>할인율 5%<br/>보유량 400000 이상</p>
+        <p>할인율 5%<br/>보유량 400,000 이상</p>
       </div>
       <div class="tier">
         <h3>🥈 VIP</h3>
-        <p>할인율 3%<br/>보유량 250000 이상</p>
+        <p>할인율 3%<br/>보유량 250,000 이상</p>
       </div>
       <div class="tier">
         <h3>🏅 골드</h3>
-        <p>할인율 2%<br/>보유량 190000 이상</p>
+        <p>할인율 2%<br/>보유량 190,000 이상</p>
       </div>
       <div class="tier">
         <h3>🔘 실버</h3>
-        <p>할인율 1%<br/>보유량 90000 이상</p>
+        <p>할인율 1%<br/>보유량 90,000 이상</p>
       </div>
       <div class="tier">
         <h3>🥉 브론즈</h3>
-        <p>할인율 0%<br/>보유량 50000 이상</p>
+        <p>할인율 0%<br/>보유량 50,000 이상</p>
       </div>
     </div>
   </div>
 
+  <!-- 푸터 -->
   <footer>
-    ⓒ 2025 Page Pop. All rights reserved.
+    ⓒ 2025 Paragon Pay. All rights reserved.
   </footer>
 
 </body>
