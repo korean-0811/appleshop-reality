@@ -1,111 +1,170 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>코인 수수료 페이백</title>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Pretendard', sans-serif;
-      background-color: #0b1d63;
+      background: linear-gradient(to bottom, #061a40, #0b1d63);
       color: white;
-      line-height: 1.6;
     }
-
-    .section {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0;
-    }
-
-    .section img {
-      width: 100%;
-      display: block;
-    }
-
-    .cards {
+    header {
+      background: #061a40;
+      padding: 20px 40px;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
+      justify-content: space-between;
+      align-items: center;
     }
-
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ffce00;
+      font-weight: bold;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1620207418302-439b387441b0?fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 20px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .hero .buttons button {
+      background-color: #ffce00;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .hero .buttons button:hover {
+      background-color: #ffd633;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 60px 40px;
+    }
     .card {
       background-color: #12256f;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       text-align: center;
     }
-
     .card img {
       width: 100%;
-      height: auto;
+      height: 180px;
+      object-fit: cover;
     }
-
     .card-text {
-      padding: 16px;
+      padding: 20px;
     }
-
+    .cta-section {
+      background-color: #0c2a5f;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .cta-section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .cta-section button {
+      background-color: #ffce00;
+      color: black;
+      padding: 15px 30px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
     footer {
       background-color: #09184f;
-      padding: 20px 10px;
-      font-size: 14px;
+      padding: 40px 20px;
       text-align: center;
-      color: #ccc;
-    }
-
-    @media screen and (min-width: 768px) {
-      .cards {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .card {
-        flex: 1;
-      }
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero 배너 -->
-  <section class="section">
-    <img src="https://raw.githubusercontent.com/korean-0811/pagepop/main/images/banner.png" alt="코인 수수료 페이백 배너">
-  </section>
+  <header>
+    <h1>CoinPay 페이백</h1>
+    <nav>
+      <a href="#">홈</a>
+      <a href="#">혜택</a>
+      <a href="#">시작하기</a>
+      <a href="#">문의</a>
+    </nav>
+  </header>
 
-  <!-- 카드 섹션 -->
-  <section class="section cards">
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/korean-0811/pagepop/main/images/card1.png" alt="수수료 자동 페이백">
-      <div class="card-text">
-        <strong>매매 수수료 자동 페이백</strong><br/>
-        복잡한 신청 없이 자동으로 환급받으세요.
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/korean-0811/pagepop/main/images/card2.png" alt="코인 전문가 분석">
-      <div class="card-text">
-        <strong>코인 전문가의 해설 제공</strong><br/>
-        매매 전략에 도움이 되는 리포트 제공!
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/korean-0811/pagepop/main/images/card3.png" alt="실시간 뉴스 알림">
-      <div class="card-text">
-        <strong>실시간 뉴스 알림</strong><br/>
-        변동성 높은 코인 시장, 실시간 알림으로 빠르게 대응하세요.
-      </div>
+  <section class="hero">
+    <h2>놓치지 마세요! 최대 60% 수수료 페이백</h2>
+    <p>간단한 가입으로 누적 평균 300만원 환급 혜택!</p>
+    <div class="buttons">
+      <button>무료 신청하기</button>
+      <button>더 알아보기</button>
     </div>
   </section>
 
-  <!-- 푸터 -->
+  <section class="features">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1639752791300-48da9e4b3cf6?fit=crop&w=800&q=80" alt="자동 페이백">
+      <div class="card-text">
+        <strong>자동 페이백</strong>
+        <p>매매만 하면 자동으로 수수료를 돌려드립니다.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1625217521048-3c63c89eecb7?fit=crop&w=800&q=80" alt="전문가 분석">
+      <div class="card-text">
+        <strong>전문가 분석 제공</strong>
+        <p>시장 상황에 맞춘 전략 리포트 제공.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?fit=crop&w=800&q=80" alt="실시간 뉴스">
+      <div class="card-text">
+        <strong>실시간 알림</strong>
+        <p>급등락 뉴스, 공지사항 즉시 전달.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1630348538248-dbae0c6a4505?fit=crop&w=800&q=80" alt="모바일 연동">
+      <div class="card-text">
+        <strong>모바일 연동</strong>
+        <p>스마트폰으로 간편하게 확인하고 환급받기.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h3>지금 바로 신청하고 수익률을 올리세요!</h3>
+    <button>1분 만에 시작하기</button>
+  </section>
+
   <footer>
     © 2025 Coin Pay Refund | 모든 권리 보유<br/>
     고객센터: support@coinpay.com
